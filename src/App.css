@@ -1,0 +1,260 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+ @font-face {
+    font-family: 'GTSectraDisplay';
+    src: url('./model/GTSectraDisplay-Bold.woff2') format('woff2');
+  }
+
+html,body,#root{
+  width: 100%;
+  background-color: black;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+main{
+  position: relative;
+ 
+}
+
+section{
+  min-height: 100vh;
+
+  position: relative;
+  z-index: 2; 
+}
+
+#canvas-elem::after{
+  content: "";
+  height:100% !important;
+  width:100% !important;
+  position: absolute;
+  top:0;
+  left:0;
+  z-index:-1;
+  background-image:url('/models/background-m.png');
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
+  transition: all 0.3s linear;
+}
+
+
+#section-1{
+  --gap:4.5rem;
+  position: relative; 
+  
+  nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2.5rem;
+    padding-top: 3.5rem;
+    .nav-elem:nth-child(2){
+      i{
+        color: red;
+        
+      }
+    }
+    .nav-elem:nth-child(3){
+      i{
+        font-size: 30px;
+        
+
+      }
+    }
+    .nav-elem{
+      
+      color: white;
+      
+    }
+    svg{
+      max-width: 5rem;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .middle{
+    display: flex;
+    gap: var(--gap);
+    .left,.right{
+      width: 50%;
+    }
+    .left{
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-block: 5.8rem;
+      color:whitesmoke;
+      font-family: 'GTSectraDisplay', serif;
+      
+    }
+    h1{
+      font-size: 6.6rem;
+      line-height: 0.8;
+      text-align:right;
+    }
+  }
+  .bottom{
+    display: flex;
+    gap: var(--gap);
+
+    .left , .right{
+        width: 50%;
+    }
+
+    .right{
+      p{
+        font-weight:300 ;
+        line-height: 1.5;
+        color:whitesmoke
+      }
+    }
+  }
+
+  .first-line{
+    width:35rem;
+    background-color: rgba(255, 0, 0, 0.385);
+    height: 1px;
+    position: absolute;
+    transform:rotate(45deg) translate(0,-17rem)
+  }
+  .second-line{
+    width:25rem;
+    background-color: rgba(255, 0, 0, 0.337);
+    height: 1px;
+    position: absolute;
+    transform:rotate(135deg);
+    top:28%;
+    right:12%
+  }
+}
+
+#section-2{
+  .titles{
+    color:rgba(245, 245, 245, 0.589);
+    display:flex;
+    flex-direction: column;
+    padding-inline: 10rem;
+    padding-block: 10rem;
+    transition: all 0.3s linear;
+
+    .title{
+      display: flex;
+      gap:4.5rem;
+      opacity:0.5 ;
+      padding-block: 1.2rem;
+      h1{
+        font-size: 4.5rem;
+        font-weight: 100;
+        line-height: 1;
+      }
+
+      small{
+        margin-top: 0.5rem;
+        font-size:0.7rem
+      }
+    }
+  }
+  .title:hover{
+    opacity:1;
+    cursor: pointer;
+  }
+}
+
+main:has(#section-2 .title:hover) #canvas-elem::after{
+  opacity: 0;
+}
+
+.images{
+  position: fixed;
+  height:100%;
+  width:100%;
+  top:0;
+  left:0;
+
+  img{
+    height:100%;
+    width:100%;
+    object-fit: cover;
+    position: absolute;
+    top:0;
+    left:0;
+    opacity:0;
+    transition: all 0.3s linear;
+  }
+}
+
+main:has(#section-2 .title[img-title="tomorrowland"]:hover) .images #tomorrowland{
+  opacity:1;
+  background-color: rgb(4, 7, 24);
+}
+main:has(#section-2 .title[img-title="navypier"]:hover) .images #navypier{
+  opacity:1;
+  background-color: rgba(9, 33, 54, 0.881);
+}
+main:has(#section-2 .title[img-title="msichicago"]:hover) .images #msichicago{
+  opacity:1;
+  background-color: rgb(23, 29, 72);
+}
+main:has(#section-2 .title[img-title="kikkfestival"]:hover) .images #kikkfestival{
+  opacity:1;
+  background-color: rgb(4, 7, 24);
+}
+main:has(#section-2 .title[img-title="royalopera"]:hover) .images #royalopera{
+  opacity:1;
+  background-color: rgba(15, 22, 61, 0.645);
+}
+main:has(#section-2 .title[img-title="louise"]:hover) .images #louise{
+  opacity:1;
+  background-color: rgba(128, 37, 37, 0.682);
+}
+
+#section-3 {
+ 
+  padding-inline: 10rem;
+  z-index: 0;
+  min-height: initial; 
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* position: relative; */
+
+  h1{
+    text-align: right;
+    padding-left: 5rem;
+    color: whitesmoke;
+    font-family: 'GTSectraDisplay', serif;
+    font-size: 3rem;
+    line-height: 0.8;
+    text-align: left;
+  
+  }
+}
+
+#section-4 {
+  padding-inline: 5rem;
+  min-height: initial; 
+  .bottom {
+    display: flex;
+    width: 100%;
+    
+    .left, .right {
+      width: 50%;
+    }
+
+    .right {
+      display: flex;
+      p {
+        padding: 2rem;
+        opacity: 0.5;
+        font-weight: 200;
+        font-size: 0.8rem;
+        color: whitesmoke;
+      }
+    }
+  }
+}
